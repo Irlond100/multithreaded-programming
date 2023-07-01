@@ -1,5 +1,6 @@
 package development_methodologies;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,8 +14,16 @@ public class PhoneBook {
 	}
 	
 	// добавляет контакты
-	public int addContact(String name, String phone) {
-		return 0;
+	public void addContact(String name, String phone) {
+		if (phoneBook.containsKey(name)) {
+			List<String> phones = phoneBook.get(name);
+			phones.add(phone);
+		} else {
+			List<String> phones = new ArrayList<>();
+			phones.add(phone);
+			phoneBook.put(name, phones);
+		}
+		
 	}
 	
 	// находит имя по номеру без полного перебора
