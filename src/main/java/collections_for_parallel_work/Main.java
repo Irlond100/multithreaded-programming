@@ -54,8 +54,8 @@ public class Main {
 	public static Thread getThread(BlockingQueue<String> queue, char letter) {
 		return new Thread(() ->
 		{
-			int max = MaxChar(queue,letter);
-			System.out.println("Максимально "+ letter + " в тексте " + max);
+			int max = MaxChar(queue, letter);
+			System.out.println("Максимально " + letter + " в тексте " + max);
 		});
 	}
 	
