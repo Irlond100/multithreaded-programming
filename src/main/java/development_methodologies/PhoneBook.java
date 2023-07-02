@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeSet;
 
 public class PhoneBook {
 	
@@ -45,7 +46,8 @@ public class PhoneBook {
 	
 	// выводит все имена в алфавитном порядке без необходимости проводить сортировку.
 	public List<String> printAllNames() {
-		return null;
+		TreeSet<String> sortedNames = new TreeSet<>(phoneBook.keySet());
+		return new ArrayList<>(sortedNames);
 	}
 	
 	public boolean containsKey(String name) {
