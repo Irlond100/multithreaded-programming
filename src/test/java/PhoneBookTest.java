@@ -24,18 +24,15 @@ public class PhoneBookTest {
 	
 	@Test
 	public void testAddContact() {
-
-// Проверяем, что контакт был добавлен успешно
+		
 		assertTrue(phoneBook.containsKey("John"));
 		List<String> phones = phoneBook.get("John");
 		assertTrue(phones.contains("1234567890"));
-
-// Проверяем, что в контакте "John" есть оба номера телефона
+		
 		phones = phoneBook.get("John");
 		assertTrue(phones.contains("1234567890"));
 		assertTrue(phones.contains("9876543210"));
-
-// Проверяем, что контакт "Alice" был добавлен успешно
+		
 		assertTrue(phoneBook.containsKey("Alice"));
 		phones = phoneBook.get("Alice");
 		assertTrue(phones.contains("5555555555"));
@@ -43,6 +40,7 @@ public class PhoneBookTest {
 	
 	@Test
 	public void testFindByNumber() {
+		
 		String phones = phoneBook.findByNumber("1234567890");
 		assertEquals("John", phones);
 		
@@ -58,6 +56,7 @@ public class PhoneBookTest {
 	
 	@Test
 	public void testFindByName() {
+		
 		List<String> name = phoneBook.findByName("John");
 		List<String> expectedPhones = new ArrayList<>();
 		expectedPhones.add("1234567890");
@@ -72,6 +71,17 @@ public class PhoneBookTest {
 		name = phoneBook.findByName("Bob");
 		expectedPhones = new ArrayList<>();
 		assertEquals(expectedPhones, name);
+	}
+	
+	@Test
+	public void testPrintAllNames() {
+		
+		List<String> names = phoneBook.printAllNames();
+		List<String> expectedNames = new ArrayList<>();
+		expectedNames.add("Alice");
+		expectedNames.add("John");
+		expectedNames.add("Rlo");
+		assertEquals(expectedNames, names);
 	}
 	
 }
