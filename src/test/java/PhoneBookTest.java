@@ -1,5 +1,6 @@
 import development_methodologies.PhoneBook;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.BeforeAll;
@@ -42,17 +43,35 @@ public class PhoneBookTest {
 	
 	@Test
 	public void testFindByNumber() {
-		String name = phoneBook.findByNumber("1234567890");
-		assertEquals("John", name);
+		String phones = phoneBook.findByNumber("1234567890");
+		assertEquals("John", phones);
 		
-		name = phoneBook.findByNumber("9876543210");
-		assertEquals("John", name);
+		phones = phoneBook.findByNumber("9876543210");
+		assertEquals("John", phones);
 		
-		name = phoneBook.findByNumber("5555555555");
-		assertEquals("Alice", name);
+		phones = phoneBook.findByNumber("5555555555");
+		assertEquals("Alice", phones);
 		
-		name = phoneBook.findByNumber("9999999999");
-		assertNull(name);
+		phones = phoneBook.findByNumber("9999999999");
+		assertNull(phones);
+	}
+	
+	@Test
+	public void testFindByName() {
+		List<String> name = phoneBook.findByName("John");
+		List<String> expectedPhones = new ArrayList<>();
+		expectedPhones.add("1234567890");
+		expectedPhones.add("9876543210");
+		assertEquals(expectedPhones, name);
+		
+		name = phoneBook.findByName("Alice");
+		expectedPhones = new ArrayList<>();
+		expectedPhones.add("5555555555");
+		assertEquals(expectedPhones, name);
+		
+		name = phoneBook.findByName("Bob");
+		expectedPhones = new ArrayList<>();
+		assertEquals(expectedPhones, name);
 	}
 	
 }

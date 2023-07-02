@@ -26,7 +26,7 @@ public class PhoneBook {
 		
 	}
 	
-	// находит имя по номеру без полного перебора
+	
 	public String findByNumber(String name) {
 		for (Map.Entry<String, List<String>> entry : phoneBook.entrySet()) {
 			List<String> phones = entry.getValue();
@@ -37,8 +37,8 @@ public class PhoneBook {
 		return null;
 	}
 	
-	// находит номер по имени без полного перебора.
-	public List<String> findByName(String name) {
+	
+	public List<String> findByName (String name) {
 		return null;
 	}
 	
