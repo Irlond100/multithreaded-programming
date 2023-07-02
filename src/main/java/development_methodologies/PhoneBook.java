@@ -27,8 +27,8 @@ public class PhoneBook {
 	}
 	
 	// находит имя по номеру без полного перебора
-	public List<String> getPhonesByName(String name) {
-		return phoneBook.get(name);
+	public String findByNumber(String name) {
+		return null;
 	}
 	
 	// находит номер по имени без полного перебора.
@@ -37,8 +37,8 @@ public class PhoneBook {
 	}
 	
 	// выводит все имена в алфавитном порядке без необходимости проводить сортировку.
-	public void printAllNames() {
-	
+	public List<String> printAllNames() {
+	return null;
 	}
 	
 	public boolean containsKey(String name) {

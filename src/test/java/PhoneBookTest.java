@@ -5,6 +5,8 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PhoneBookTest {
@@ -18,7 +20,7 @@ public class PhoneBookTest {
 		phoneBook.addContact("Alice", "5555555555");
 		phoneBook.addContact("Rlo", "987654");
 	}
-
+	
 	@Test
 	public void testAddContact() {
 
@@ -36,6 +38,21 @@ public class PhoneBookTest {
 		assertTrue(phoneBook.containsKey("Alice"));
 		phones = phoneBook.get("Alice");
 		assertTrue(phones.contains("5555555555"));
+	}
+	
+	@Test
+	public void testFindByNumber() {
+		String name = phoneBook.findByNumber("1234567890");
+		assertEquals("John", name);
+		
+		name = phoneBook.findByNumber("9876543210");
+		assertEquals("John", name);
+		
+		name = phoneBook.findByNumber("5555555555");
+		assertEquals("Alice", name);
+		
+		name = phoneBook.findByNumber("9999999999");
+		assertNull(name);
 	}
 	
 }
