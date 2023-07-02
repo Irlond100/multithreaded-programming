@@ -28,6 +28,12 @@ public class PhoneBook {
 	
 	// находит имя по номеру без полного перебора
 	public String findByNumber(String name) {
+		for (Map.Entry<String, List<String>> entry : phoneBook.entrySet()) {
+			List<String> phones = entry.getValue();
+			if (phones.contains(name)) {
+				return entry.getKey();
+			}
+		}
 		return null;
 	}
 	
