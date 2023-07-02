@@ -26,7 +26,6 @@ public class PhoneBook {
 		
 	}
 	
-	
 	public String findByNumber(String name) {
 		for (Map.Entry<String, List<String>> entry : phoneBook.entrySet()) {
 			List<String> phones = entry.getValue();
@@ -37,14 +36,16 @@ public class PhoneBook {
 		return null;
 	}
 	
-	
-	public List<String> findByName (String name) {
-		return null;
+	public List<String> findByName(String phone) {
+		if(phoneBook.containsKey(phone)){
+			return phoneBook.get(phone);
+		}
+		return new ArrayList<>();
 	}
 	
 	// выводит все имена в алфавитном порядке без необходимости проводить сортировку.
 	public List<String> printAllNames() {
-	return null;
+		return null;
 	}
 	
 	public boolean containsKey(String name) {
